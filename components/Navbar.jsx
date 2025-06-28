@@ -3,7 +3,7 @@
 import { SignInButton, SignOutButton, UserButton, useUser } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
-import GradientText from '../GradientText/GradientText'
+import GradientText from '../app/GradientText/GradientText'
 
 const Navbar = () => {
   const { isSignedIn, user } = useUser()
