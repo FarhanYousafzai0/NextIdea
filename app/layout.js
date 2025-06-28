@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "NextIdea",
-  description: "NextIdea is a platform for creating and sharing startup ideas",
+  title: "DriveFounders",
+  description: "DriveFounders is a platform for creating and sharing startup ideas",
 };
 
 export default function RootLayout({ children }) {

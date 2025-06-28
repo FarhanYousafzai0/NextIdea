@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className='h-[70px] p-4 bg-white shadow-sm '>
       <div className='flex items-center justify-between'>
         <Link href='/'>
-      <Image src='/logo.png' alt='logo' width={200} height={150} />
+        <span className='text-[1.3rem] font-bold uppercase'>Drive<span className='text-pink-500'>Founders</span></span>
         </Link>
 
         <div className='flex items-center gap-4'>
