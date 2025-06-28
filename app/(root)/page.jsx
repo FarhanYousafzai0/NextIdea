@@ -1,9 +1,10 @@
 import React from 'react'
+import Aurora from '../utils/Backgrounds/Aurora/Aurora'
 
 const page = () => {
   return (
     <>
-      <h1 className='text-3xl font-bold underline'>Hello World</h1>
+    
     </>
   )
 }
