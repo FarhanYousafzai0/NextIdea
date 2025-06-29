@@ -10,7 +10,7 @@ const page = async({ searchParams }) => {
     {
       id: 1,
       title: "AI Startup Revolutionizing Healthcare",
-      createdAt: new Date("2025-06-28T10:30:00Z"),
+      createdAt: new Date(),
       views: 1234,
       author: {
         id: "1",
@@ -23,7 +23,7 @@ const page = async({ searchParams }) => {
     {
       id: 2,
       title: "Green Energy for Smart Cities",
-      createdAt: new Date("2025-06-27T09:15:00Z"),
+      createdAt: new Date(),
       views: 890,
       author: {
         id: "2",
@@ -34,7 +34,7 @@ const page = async({ searchParams }) => {
       description: "Providing scalable solar and wind energy solutions for sustainable urban growth."
     }
   ];
-  const query = searchParams?.query || ''
+  const query =  await searchParams?.query || ''
   return (
     <>
 

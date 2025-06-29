@@ -1,3 +1,4 @@
+import { formatDate } from '@/lib/utils'
 import { Avatar } from '@mui/material'
 import { Eye } from 'lucide-react'
 import Image from 'next/image'
@@ -8,7 +9,7 @@ const StartCard = ({_id,title,views,createdAt,description, category,image,author
   return (
     <div className='bg-white hover:bg-pink-100 hover:border-pink-500 border-[5px] border-r-[10px] border-b-[10px] border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-300 hover:shadow-2xl'>
       <div className='flex items-center justify-between'>
-<p className='font-medium text-2xl'>Yesterday</p>
+<p className='font-medium text-2xl'>{formatDate(createdAt)}</p>
 
 <div className="flex items-center gap-2">
 <Eye className='text-pink-500 ' size={30}/>

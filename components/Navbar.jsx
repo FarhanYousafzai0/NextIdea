@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className='h-[70px] p-4 bg-white shadow-sm '>
       <div className='flex items-center justify-between'>
         <Link href='/'>
-        <span className='text-[1.3rem] font-bold uppercase'>Drive<span className='text-pink-500'>Founders</span></span>
+        <span className='text-[1.3rem] font-bold uppercase'>Next<span className='text-pink-500'>Idea</span></span>
         </Link>
 
         <div className='flex items-center gap-4'>

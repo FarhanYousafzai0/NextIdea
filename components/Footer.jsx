@@ -15,8 +15,8 @@ const Footer = () => {
         <div className="mb-12">
           {/* Brand section */}
           <div className="mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-gradient-to-r from-white to-pink-100 bg-clip-text text-transparent">
-              DriveFounders
+            <h2 className="text-4xl md:text-5xl font-bold  mb-4 bg-gradient-to-r from-white to-pink-100 bg-clip-text text-transparent">
+              NextIdea
             </h2>
             <p className="text-xl text-pink-100 mb-8 max-w-2xl mx-auto leading-relaxed">
               Where innovative ideas meet passionate founders. Share your vision, discover inspiration, and connect with the entrepreneurial community.
@@ -143,7 +143,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
             <div className="flex items-center space-x-2 text-pink-100">
-              <span>© 2025 DriveFounders. Built with</span>
+              <span>© 2025 NextIdea. Built with</span>
               <Heart size={16} className="text-red-300 animate-pulse" />
               <span>for founders everywhere</span>
             </div>
