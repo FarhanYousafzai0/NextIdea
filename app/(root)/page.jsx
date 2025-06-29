@@ -36,7 +36,7 @@ const page = async({ searchParams }) => {
   const query = searchParams?.query || ''
   return (
     <>
- <section className='bg-pink-400 min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6 text-center'>
+ <section className='bg-pink-400 min-h-[530px] w-screen pattern flex justify-center items-end flex-col py-10 px-6 text-center'>
   <button className='font-bold md:px-7 md:py-5 p-4 bg-yellow-500 rounded-md'>
     PITCH, GROW, VOTE
   </button>
@@ -54,8 +54,8 @@ const page = async({ searchParams }) => {
 </section>
 
 
-    <section className="px-6 py-10 max-w-7xl mx-auto">
-        <p className="font-semibold text-[30px] text-black">
+    <section className="px-10 py-10 max-w-8xl mx-auto ">
+        <p className="font-semibold text-4xl text-black">
           {query ? `Search result for "${query}"` : "All Startups"}
         </p>
 
@@ -63,7 +63,7 @@ const page = async({ searchParams }) => {
         <ul className="mt-7 grid md:grid-cols-3 sm:grid-cols-2 gap-5">
           {posts?.length > 0 ? (
             posts.map((index,post) => (
-              <StartCard key={index} posts={posts} />
+              <StartCard key={index} {...post} />
             ))
           ) : (
             <p className="no-results">No startups found</p>

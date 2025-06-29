@@ -1,77 +1,65 @@
-import { cn, formatDate } from "@/lib/utils";
-import { EyeIcon } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Avatar } from '@mui/material'
+import { Eye } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-const StartupCard = ({ posts }) => {
-  const {
-    _createdAt,
-    views,
-    author,
-    title,
-    category,
-    _id,
-    image,
-    description,
-  } = posts;
-
+const StartCard = () => {
   return (
-    <li className="bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-pink-400 transition-all duration-500 hover:shadow-300 hover:bg-primary-100group">
+    <div className='bg-white hover:bg-pink-100 hover:border-pink-500 border-[5px] border-r-[10px] border-b-[10px] border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-300 hover:shadow-2xl'>
+      <div className='flex items-center justify-between'>
+<p className='font-medium text-2xl'>Yesterday</p>
+
+<div className="flex items-center gap-2">
+<Eye className='text-pink-500 ' size={30}/>
+<p className='font-medium text-[1.3rem]'>50</p>
+</div>
+
+
+
+
+
+      </div>
+
+
       <div className="flex items-center justify-between">
-        <p className=" font-medium text-[16px] bg-gray-100 px-4 py-2 rounded-full group-hover:bg-white-100">{formatDate(_createdAt)}</p>
-        <div className="flex gap-1.5">
-          <EyeIcon className="size-6 text-primary" />
-          <span className="text-16-medium">{views}</span>
-        </div>
+<div className="flex flex-col gap-2 mt-6">
+
+    <Link href={``}><p className=' font-medium text-[1.2rem]'>Farhan Yousafzai</p></Link>
+    <Link href={``}><p className='font-semibold text-3xl'>Power Of Robotics</p></Link>
+
+</div>
+
+<Avatar
+  alt="Remy Sharp"
+  src={`https://videos.openai.com/vg-assets/assets%2Ftask_01jywnaemxf45r7nmt4qatf6ms%2F1751161088_img_1.webp?st=2025-06-29T15%3A03%3A30Z&se=2025-07-05T16%3A03%3A30Z&sks=b&skt=2025-06-29T15%3A03%3A30Z&ske=2025-07-05T16%3A03%3A30Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=p7s9lHWBznJqTPOLiyAvC92MCbaZ%2F6zA%2B2hnqDjjR2U%3D&az=oaivgprodscus`}
+  sx={{ width: 56, height: 56 }}
+/>
+
+
       </div>
 
-      <div className="flex-between mt-5 gap-5">
-        <div className="flex-1">
-          <Link href={`/user/${author?._id}`}>
-            <p className="text-16-medium line-clamp-1">{author?.name}</p>
-          </Link>
-          <Link href={`/startup/${_id}`}>
-            <h3 className="text-26-semibold line-clamp-1">{title}</h3>
-          </Link>
-        </div>
-        <Link href={`/user/${author?._id}`}>
-          <Image
-            src={author?.image || "/placeholder.jpg"}
-            alt={author?.name || "User"}
-            width={48}
-            height={48}
-            className="rounded-full"
-          />
-        </Link>
-      </div>
 
-      <Link href={`/startup/${_id}`}>
-        <p className="font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all">{description}</p>
-        <img src={image} alt="startup" className="sw-full h-[164px] rounded-[10px] object-cover" />
-      </Link>
+      {/* Descripotn and Image */}
 
-      <div className="flex items-center justify-between gap-3 mt-5">
-        <Link href={`/?query=${category?.toLowerCase()}`}>
-          <p className="text-16-medium">{category}</p>
-        </Link>
-        <Button className="rounded-full bg-black  text-[16px] text-white px-5 py-3" asChild>
-          <Link href={`/startup/${_id}`}>Details</Link>
-        </Button>
-      </div>
-    </li>
-  );
-};
+<Link href={``} className="flex flex-col gap-4 mt-5">
 
-export const StartupCardSkeleton = () => (
-  <>
-    {[0, 1, 2, 3, 4].map((index) => (
-      <li key={`skeleton-${index}`}>
-        <Skeleton className="startup-card_skeleton" />
-      </li>
-    ))}
-  </>
-);
+<p className='font-normal text-[1.3rem] line-clamp-2 break-all my-3'>Learning robotics is future,and if you too clear .</p>
 
-export default StartupCard;
+<img src={`https://videos.openai.com/vg-assets/assets%2Ftask_01jyns297xexzbmv4j8t9acvqf%2F1750930252_img_0.webp?st=2025-06-29T15%3A58%3A11Z&se=2025-07-05T16%3A58%3A11Z&sks=b&skt=2025-06-29T15%3A58%3A11Z&ske=2025-07-05T16%3A58%3A11Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=wbZkIVyQ31sPkQ6Asz1SGxcqOkPWjgdBauErbVWws6g%3D&az=oaivgprodscus`} alt="placeholder" className="w-full h-[170px] rounded-[10px] object-cover" />
+
+</Link>
+
+
+
+<div className="flex items-center justify-between mt-5">
+<Link href={``} className='font-semibold capitalize'>connection</Link>
+<Link href={``} className=''><button className='bg-black px-10 py-4 rounded-full cursor-pointer text-white'>Details</button></Link>
+
+
+</div>
+    </div>
+  )
+}
+
+export default StartCard
