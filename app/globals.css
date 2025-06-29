@@ -126,6 +126,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', 'Work Sans', 'Montserrat', system-ui, sans-serif;
+    overflow-x: hidden !important;
   }
 }
 .pattern {

@@ -19,7 +19,7 @@ const Navbar = () => {
           {isSignedIn ? (
             <>
               <Link href='/startup/create'>
-               <GradientText className='text-2xl'>Create Startup</GradientText>   
+               <GradientText className='text-2xl hidden md:block'>Create Startup</GradientText>   
               </Link>
 
               <UserButton showName={true} />
