@@ -1,12 +1,15 @@
-import React from 'react';
+import { client } from '@/sanity/lib/client';
+import { sanityFetch } from '@/sanity/lib/live';
+import { STARTUP_BY_ID_QUERY } from '@/sanity/lib/queries';
 
 const page = async ({ params }) => {
-  const id = params.id;
+  const data = await client.fetch(STARTUP_BY_ID_QUERY, { id: params.id });
 
   return (
-    <>
-      <h2 className='text-5xl text-red-900 uppercase'>This is the startup id: {id}</h2>
-    </>
+    <div>
+      <h2>This is the startup id: {data._id}</h2>
+      <p>{data.title}</p>
+    </div>
   );
 };
 
