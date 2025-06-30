@@ -13,7 +13,7 @@ const SearchForm = ({ query }) => {
       <input
         name="query"
         defaultValue={query}
-        className="flex-1 font-bold placeholder:font-semibold placeholder:text-gray-400 w-full h-auto outline-none"
+        className="flex-1 font-bold placeholder:font-semibold placeholder:text-gray-500 w-full h-auto outline-none"
         placeholder="Search Startups"
       />
 

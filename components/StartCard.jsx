@@ -58,7 +58,7 @@ const StartCard = ({_id,title,views,_createdAt,description, category,image,autho
 
 <div className="flex items-center justify-between mt-5">
 <Link href={``} className='font-semibold capitalize'>{category}</Link>
-<Link href={``} className=''><button className='bg-black px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer text-white'>Details</button></Link>
+<Link href={`/startup/${_id}`} className=''><button className='bg-black px-10 py-4 rounded-full hover:scale-105 transition-transform duration-300 cursor-pointer text-white'>Details</button></Link>
 
 
 </div>
