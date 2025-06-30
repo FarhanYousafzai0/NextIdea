@@ -23,7 +23,7 @@ export const startup = defineType({
     defineField({
       name: "author",
       title: "Author",
-      type: "reference", // Fixed typo here
+      type: "reference",
       to: { type: "author" },
     }),
     defineField({
@@ -36,6 +36,13 @@ export const startup = defineType({
       title: "Description",
       type: "text",
     }),
+    
+    defineField({
+      name: "image",
+   type:"url",
+     
+      validation: (Rule) => Rule.required().error("Image is required"),
+    }),
     defineField({
       name: "category",
       title: "Category",
@@ -44,12 +51,14 @@ export const startup = defineType({
         Rule.min(1)
           .max(20)
           .required()
-          .error("Please enter the category"), // Fixed semicolon + spelling
+          .error("Please enter the category"),
     }),
+    defineField({
+        name: "pitch",
+        title: "Startup Pitch",
+        type: "markdown",
+       
+      }),
   ],
-  preview: {
-    select: {
-      title: "title", // Should match your field name
-    },
-  },
+ 
 });

@@ -4,5 +4,7 @@ export const structure = (S) =>
     .title('Content')
     .items([
       S.documentTypeListItem('author').title('Authors'),
+      S.documentTypeListItem('startup').title('Startup'),
+
     
     ]);
