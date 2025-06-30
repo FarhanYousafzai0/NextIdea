@@ -1,3 +1,8 @@
+import { author } from "./author";
+
+
+
+
 export const schema = {
-  types: [],
+  types: [author],
 }
