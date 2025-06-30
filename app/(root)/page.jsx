@@ -8,12 +8,19 @@ import { client } from '@/sanity/lib/client';
 import { STARTUP_QUERY } from '@/sanity/lib/queries';
 
 const page = async ({ searchParams }) => {
-  const data = await client.fetch(STARTUP_QUERY);
-
-  
-  console.log(JSON.stringify(data, null, 2));
 
   const query =   searchParams?.query || '';
+  
+  const params = { search: query || null };
+
+  const data = await client.fetch(STARTUP_QUERY,params);
+
+
+  
+  
+
+
+
 
   return (
     <>

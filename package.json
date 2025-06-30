@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
   },
   "packageManager": "npx@10.5.2",
   "dependencies": {
@@ -22,6 +23,7 @@
     "@tailwindcss/typography": "github:tailwindcss/typography",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "install": "^0.13.0",
     "lucide-react": "^0.522.0",
     "motion": "^12.19.2",
     "next": "15.3.4",
@@ -31,6 +33,7 @@
     "react-dom": "19.1.0",
     "sanity": "^3.95.0",
     "sanity-plugin-markdown": "^5.1.1",
+    "server-only": "^0.0.1",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",

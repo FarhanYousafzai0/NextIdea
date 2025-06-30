@@ -4,12 +4,15 @@ import { Eye } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+// Remove invalid type export (JSX/JS file, not TS). No code needed here.
+// TypeScript
 
-const StartCard = ({_id,title,views,createdAt,description, category,image,author}) => {
+
+const StartCard = ({_id,title,views,_createdAt,description, category,image,author}) => {
   return (
     <div className='bg-white hover:bg-pink-100 hover:border-pink-500 border-[5px] border-r-[10px] border-b-[10px] border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-300 hover:shadow-2xl'>
       <div className='flex items-center justify-between'>
-<p className='font-medium text-2xl'>{formatDate(createdAt)}</p>
+<p className='font-medium text-2xl'>{formatDate(_createdAt)}</p>
 
 <div className="flex items-center gap-2">
 <Eye className='text-pink-500 ' size={30}/>
