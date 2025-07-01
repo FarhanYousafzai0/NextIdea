@@ -35,8 +35,9 @@ const StartCard = ({_id,title,views,_createdAt,description, category,image,autho
 </div>
 
 <Avatar
-  alt="Remy Sharp"
-  src={`https://videos.openai.com/vg-assets/assets%2Ftask_01jywnaemxf45r7nmt4qatf6ms%2F1751161088_img_1.webp?st=2025-06-29T15%3A03%3A30Z&se=2025-07-05T16%3A03%3A30Z&sks=b&skt=2025-06-29T15%3A03%3A30Z&ske=2025-07-05T16%3A03%3A30Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=p7s9lHWBznJqTPOLiyAvC92MCbaZ%2F6zA%2B2hnqDjjR2U%3D&az=oaivgprodscus`}
+  alt={author?.image}
+  src={author?.image}
+  
   sx={{ width: 56, height: 56 }}
 />
 

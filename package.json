@@ -25,6 +25,7 @@
     "clsx": "^2.1.1",
     "install": "^0.13.0",
     "lucide-react": "^0.522.0",
+    "markdown-it": "^14.1.0",
     "motion": "^12.19.2",
     "next": "15.3.4",
     "next-sanity": "^9.8.58-canary.0",

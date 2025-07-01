@@ -9,7 +9,7 @@ import { STARTUP_QUERY } from '@/sanity/lib/queries';
 
 const page = async ({ searchParams }) => {
 
-  const query =   searchParams?.query || '';
+  const query =  await  searchParams?.query || '';
   
   const params = { search: query || null };
 
