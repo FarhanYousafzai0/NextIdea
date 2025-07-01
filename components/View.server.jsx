@@ -1,6 +1,6 @@
 
 
-import { unstable_after as after } from "next/server";
+import { after } from "next/server";
 import Ping from "./Ping";
 import { STARTUP_VIEWS_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
@@ -22,12 +22,12 @@ const View = async (props) => {
   );
 
   return (
-    <div className="view-container">
+    <div className="flex justify-end items-center mt-5 fixed bottom-3 right-3">
       <div className="absolute -top-2 -right-2">
         <Ping />
       </div>
 
-      <p className="view-text">
+      <p className="font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-lg capitalize">
         <span className="font-black">Views: {totalViews}</span>
       </p>
     </div>
