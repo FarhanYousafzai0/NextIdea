@@ -10,7 +10,7 @@ import React from 'react'
 
 const StartCard = ({_id,title,views,_createdAt,description, category,image,author}) => {
   return (
-    <div className='bg-white hover:bg-pink-100 hover:border-pink-500 border-[5px] border-r-[10px] border-b-[10px] border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-300 hover:shadow-2xl'>
+    <div className='bg-white hover:bg-pink-100 hover:border-pink-500  border-[5px] border-r-[10px] border-b-[10px] border-black py-6 px-5 rounded-[22px] shadow-200 transition-all duration-300 hover:shadow-2xl'>
       <div className='flex items-center justify-between'>
 <p className='font-medium text-2xl'>{formatDate(_createdAt)}</p>
 

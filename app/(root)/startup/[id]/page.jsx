@@ -1,3 +1,5 @@
+
+
 import { formatDate } from '@/lib/utils';
 import { client } from '@/sanity/lib/client';
 import { sanityFetch } from '@/sanity/lib/live';
@@ -9,8 +11,13 @@ import Link from 'next/link';
 import markdownit from 'markdown-it'
 import { notFound } from 'next/navigation';
 import { Avatar } from '@mui/material';
+import { Suspense } from 'react';
+import View from '@/components/View';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const page = async ({ params }) => {
+
+
   const data = await client.fetch(STARTUP_BY_ID_QUERY, { id: params.id });
 
 if(!data) return notFound();
@@ -90,6 +97,8 @@ dangerouslySetInnerHTML={{__html:ParseContent}}/>
 
 
 </div>
+
+     
 
     </>
   );
