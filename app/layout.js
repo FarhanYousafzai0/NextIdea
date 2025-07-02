@@ -4,6 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "easymde/dist/easymde.min.css";
 import Error from "@/components/Error";
 import SyncUser from "@/components/SyncUser";
+import { Toaster } from "@/components/ui/sonner";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Error/>
-        <SyncUser/>
+<Toaster/>
         {children}
       </body>
     </html>

@@ -1,28 +1,52 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import { Input } from '@/components/ui/input'
+import React, { useState } from 'react';
+import { useActionState } from 'react';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import MDEditor from '@uiw/react-md-editor';
-import { Textarea } from '@/components/ui/textarea'
+import { formSchema } from '@/lib/validation';
+import { Toaster, toast } from 'sonner';
 
+const handleSubmit = async (prevState, formData) => {
+  const formValues = {
+    title: formData.get("title"),
+    description: formData.get("description"),
+    category: formData.get("category"),
+    link: formData.get("link"),
+    pitch: formData.get("pitch"),
+  };
 
+  try {
+    await formSchema.parseAsync(formValues);
+    console.log('Form submitted:', formValues);
+    toast.success("Form submitted successfully");
+    return { status: "SUCCESS", error: null };
+  } catch (err) {
+    const formattedErrors = err?.format?.();
+    toast.error("Please fix the form errors");
+    return { status: "ERROR", error: formattedErrors };
+  }
+};
 
-
-const page = () => {
+export default function Page() {
   const [pitch, setPitch] = useState('');
-const [error, setError] = useState('');
+  const [state, formAction, isPending] = useActionState(handleSubmit, {
+    status: "INITIAL",
+    error: null,
+  });
 
-
-const isPending = false;
   return (
     <>
+      <Toaster />
+
       <div className='w-full bg-pink-400 !min-h-[300px] pattern flex justify-center items-center flex-col py-10 px-6'>
         <h1 className='uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5 rounded-md'>
           Submit your startup
         </h1>
       </div>
 
-      <form className='max-w-2xl mx-auto bg-white my-10 space-y-8 px-6'>
+      <form action={formAction} className='max-w-2xl mx-auto bg-white my-10 space-y-8 px-6'>
 
         {/* Title */}
         <div>
@@ -34,8 +58,7 @@ const isPending = false;
             placeholder='Enter your startup title'
             className='border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-5 placeholder:text-black-300'
           />
-
-          {error.title && <p className='text-red-500 mt-2 ml-5'>{error.title}</p>}
+          {state?.error?.title && <p className='text-red-500 mt-2 ml-5'>{state.error.title._errors[0]}</p>}
         </div>
 
         {/* Description */}
@@ -48,7 +71,7 @@ const isPending = false;
             placeholder='Describe your startup'
             className='border-[3px] border-black px-5 py-5 text-[16px] text-black font-semibold rounded-2xl mt-5 placeholder:text-black-300 resize-none'
           />
-          {error.description && <p className='text-red-500 mt-2 ml-5'>{error.description}</p>}
+          {state?.error?.description && <p className='text-red-500 mt-2 ml-5'>{state.error.description._errors[0]}</p>}
         </div>
 
         {/* Category */}
@@ -61,10 +84,10 @@ const isPending = false;
             placeholder='e.g. AI, EdTech, Finance'
             className='border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-5 placeholder:text-black-300'
           />
-          {error.category && <p className='text-red-500 mt-2 ml-5'>{error.category}</p>}
+          {state?.error?.category && <p className='text-red-500 mt-2 ml-5'>{state.error.category._errors[0]}</p>}
         </div>
 
-        {/* Image */}
+        {/* Image Link */}
         <div>
           <label htmlFor="link" className='font-bold text-[18px] text-black uppercase'>Image</label>
           <Input
@@ -72,10 +95,10 @@ const isPending = false;
             name='link'
             id='link'
             required
-            placeholder='Enter your startup link'
+            placeholder='Enter your startup image URL'
             className='border-[3px] border-black px-5 py-7 text-[16px] text-black font-semibold rounded-full mt-5 bg-white'
           />
-          {error.link && <p className='text-red-500 mt-2 ml-5'>{error.link}</p>}
+          {state?.error?.link && <p className='text-red-500 mt-2 ml-5'>{state.error.link._errors[0]}</p>}
         </div>
 
         {/* Pitch */}
@@ -84,25 +107,25 @@ const isPending = false;
           <MDEditor
             value={pitch}
             onChange={setPitch}
-           preview='edit'
-           textareaProps={{
-            placeholder:"Briefly describe your ptich,and what problem it solves",
-           }}
-           id='pitch'
-           height={300}
-           previewOptions={{
-            disallowedElements:['style']
-           }}
-           style={{borderRadius:20,overflow:'hidden',border:'3px solid black' }}
+            preview='edit'
+            textareaProps={{
+              name: 'pitch',
+              placeholder: "Briefly describe your pitch and what problem it solves",
+            }}
+            height={300}
+            previewOptions={{ disallowedElements: ['style'] }}
+            style={{ borderRadius: 20, overflow: 'hidden', border: '3px solid black' }}
           />
-          {error.pitch && <p className='text-red-500 mt-2 ml-5'>{error.pitch}</p>}
+          {state?.error?.pitch && <p className='text-red-500 mt-2 ml-5'>{state.error.pitch._errors[0]}</p>}
         </div>
 
-
-<button disabled={isPending} className='bg-pink-400 border-[4px] cursor-pointer transition-transform hover:scale-95 duration-300 border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] text-white'>{isPending ? 'Submitting...' : 'Submit'}</button>
+        <button
+          type='submit'
+          disabled={isPending}
+          className='bg-pink-400 border-[4px] cursor-pointer transition-transform hover:scale-95 duration-300 border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] text-white'>
+          {isPending ? 'Submitting...' : 'Submit'}
+        </button>
       </form>
     </>
-  )
+  );
 }
-
-export default page
