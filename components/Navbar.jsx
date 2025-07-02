@@ -28,8 +28,8 @@ const Navbar = () => {
             </>
           ) : (
             <SignInButton mode='modal'>
-              <button className=' text-white px-4 py-2 rounded-md cursor-pointer'>
-                Login with Clerk
+              <button className=' text-black px-4 py-2 rounded-md cursor-pointer'>
+                Login 
               </button>
             </SignInButton>
           )}
