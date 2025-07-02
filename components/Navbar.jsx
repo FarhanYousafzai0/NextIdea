@@ -1,6 +1,6 @@
 'use client'
 
-import { SignInButton, SignOutButton, UserButton, useUser } from '@clerk/nextjs'
+import { SignInButton, SignOutButton, UserButton, useUser, } from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import GradientText from '../app/GradientText/GradientText'

@@ -7,8 +7,12 @@ import { Textarea } from '@/components/ui/textarea';
 import MDEditor from '@uiw/react-md-editor';
 import { formSchema } from '@/lib/validation';
 import { Toaster, toast } from 'sonner';
+import { createStartup } from '@/lib/actions';
+
 
 const handleSubmit = async (prevState, formData) => {
+
+ 
   const formValues = {
     title: formData.get("title"),
     description: formData.get("description"),
@@ -20,9 +24,15 @@ const handleSubmit = async (prevState, formData) => {
   try {
     await formSchema.parseAsync(formValues);
     console.log('Form submitted:', formValues);
+
+    const result = await createStartup(prevState,formData,pitch)
     toast.success("Form submitted successfully");
-    return { status: "SUCCESS", error: null };
-  } catch (err) {
+    navigate.push(`/startup/${result._id}`)
+  } 
+  
+  
+  
+  catch (err) {
     const formattedErrors = err?.format?.();
     toast.error("Please fix the form errors");
     return { status: "ERROR", error: formattedErrors };
